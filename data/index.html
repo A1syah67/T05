@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TV Energy Use &amp; Electricity Prices</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Energy use of Australian TVs, and what power costs</h1>
+      <p class="intro">
+        Choosing a TV is also choosing an electricity bill. The first four charts look at the
+        energy labels of TVs sold in Australia: how star ratings relate to energy use, and which
+        screen technologies use the most. The last chart steps back to the wholesale
+        price of electricity, which has risen sharply since 1998.
+      </p>
+      <div class="legend-container" aria-label="Screen technology legend"></div>
+    </header>
+
+    <main>
+      <section class="card span-12">
+        <h2>More stars, less energy</h2>
+        <p class="desc">Each dot is one TV model. Higher star ratings tend to go with lower energy use, though bigger screens at the same rating still use more.</p>
+        <div id="scatter" class="chart"></div>
+      </section>
+
+      <section class="card span-5">
+        <h2>Average energy by screen technology</h2>
+        <p class="desc">Mean labelled energy use (kWh/year), all screen sizes. OLED TVs use the most on average.</p>
+        <div id="donut" class="chart"></div>
+      </section>
+
+      <section class="card span-7">
+        <h2>Comparing like with like: 55-inch TVs</h2>
+        <p class="desc">Fixing the size at 55&Prime; narrows the gap: LCD and LED are almost level, OLED is still higher.</p>
+        <div id="bar" class="chart"></div>
+      </section>
+
+      <section class="card span-12">
+        <h2>Which technologies earn which star ratings?</h2>
+        <p class="desc">
+          Number of TV models at each star rating, stacked by screen technology. LED models make up most of every
+          rating, while OLED models cluster at 3&ndash;5 stars. Switch to shares to compare the mix across ratings.
+        </p>
+        <div id="stacked-toggle" class="toggle" role="group" aria-label="Chart view">
+          <button type="button" data-mode="count" class="active" aria-pressed="true">Number of models</button>
+          <button type="button" data-mode="share" aria-pressed="false">Share of models</button>
+        </div>
+        <div id="stacked" class="chart"></div>
+      </section>
+
+      <section class="card span-12">
+        <h2>Wholesale electricity prices, 1998&ndash;2024</h2>
+        <p class="desc">
+          The bold line is the average of the mainland states (Queensland, NSW, Victoria, South Australia);
+          grey lines are individual states. Hover to compare a year. Snowy region (ends 2007) is not shown.
+        </p>
+        <div id="line" class="chart"></div>
+      </section>
+    </main>
+
+    <footer>Data: course datasets <code>Ex5_TV_energy*.csv</code> and <code>Ex5_ARE_Spot_Prices.csv</code>.</footer>
+  </div>
+
+  <div id="tooltip" role="tooltip"></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/shared-constants.js"></script>
+  <script src="js/legend.js"></script>
+  <script src="js/scatter.js"></script>
+  <script src="js/donut.js"></script>
+  <script src="js/bar.js"></script>
+  <script src="js/stacked.js"></script>
+  <script src="js/line.js"></script>
+  <script src="js/load-data.js"></script>
+</body>
+</html>
